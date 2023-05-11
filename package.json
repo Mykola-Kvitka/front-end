@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/eslint-parser": "^7.21.3",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
+    "@mui/x-data-grid": "^6.3.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,20 +20,18 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "url": "^0.11.0",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4",
+    "webpack-merge": "^5.8.0",    
+    "react-redux": "^7.2.9"
   },
   "scripts": {
+    "serve": "webpack-dev-server --open",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -38,6 +43,68 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "7.8.3",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-typescript": "^7.21.4",
+    "@babel/runtime": "7.4.3",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@types/react-redux": "^7.1.25",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "babel-preset-react-app": "^9.1.2",
+    "buffer": "^6.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "react-router-dom": "^6.11.1",
+    "ts-loader": "^9.4.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.13.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/*.d.ts",
+      "!<rootDir>/**/__tests__/**",
+      "!<rootDir>/**/dist/**",
+      "!<rootDir>/config/**",
+      "!<rootDir>/coverage/**"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/jest/setupTests.js"
+    ],
+    "testRegex": "^.+\\.(spec|test)\\.[jt]sx?$",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+      "^.+\\.svg$": "jest-transform-stub",
+      "^.+\\.(css|less)$": "<rootDir>/node_modules/jest-css-modules-processor/src/index.js"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules",
+      "@mui/base/utils": "<rootDir>/node_modules/@mui/base/utils"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx",
+      "json",
+      "jsx"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/tests-examples/",
+      "functional-tests/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
     ]
   }
 }
